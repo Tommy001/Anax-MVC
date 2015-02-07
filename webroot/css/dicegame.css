@@ -1,0 +1,139 @@
+
+
+/**
+ * CSS sprite for a dice with six faces.
+ *
+ */
+ul.dice {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+ul.dice li {
+  display: inline-block;
+  padding: 0;
+  margin: 0 4px 0 0;
+  width: 100px;
+  height: 200px;
+  background: url(../img/dices_kmom02.gif) no-repeat;
+}
+ 
+ul.dice li.dice-6 { background-position: -502px 0px; }
+ul.dice li.dice-5 { background-position: -401px 0px; }
+ul.dice li.dice-4 { background-position:  -301px 0px; }
+ul.dice li.dice-3 { background-position:  -201px 0px; }
+ul.dice li.dice-2 { background-position:  -101px 0px; }
+ul.dice li.dice-1 { background-position:    0px 0px; }
+
+/**
+ * CSS for dice box.
+ *
+ */
+ 
+.dicegame {
+    float:left;
+    text-align:center;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:#333;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.diceround {
+    float:left;
+    text-align:center;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:#333;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.dicesave {
+    background:url("../img/floppy_save.png") no-repeat;
+    float:left;
+    text-align:center;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:#333;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.dicesave a:hover {
+    background:#345534;
+}    
+
+.diceroll {
+    float:left;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:#333;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+.reach100 {
+    float:left;
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:red;
+    text-decoration:blink;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+/**
+ * CSS to make something blink.
+ *
+ */
+.blink {
+    display: inline;
+    color: inherit;
+    animation: blink 1s steps(1) infinite;
+    -webkit-animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { color: transparent; } }
+/* @-webkit-keyframes blink { 50% { color: transparent; } } */
+
+.padding-top {
+    padding-top:5px;
+}    
+
+.diceinit {
+    background:url("../img/avbryt.png") no-repeat;
+    background-size:90%;
+    background-position:    4px 4px;
+    float:left;
+    height:100px;
+    width:100px;
+    border:solid 1px;
+    color:#333;
+      border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+div#dice-container {
+    width: 880px;
+    height: 102px;
+    text-align:center;
+    margin-top:30px;
+}    

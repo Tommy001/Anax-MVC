@@ -1,0 +1,138 @@
+/*------------------------------------*
+  MAIN
+*------------------------------------*/
+html {
+  font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+  color: #333;
+}
+
+body {
+  width: 460px;
+  margin: 0 auto;
+  line-height: 1.5em;
+  padding-top: 72px;
+  background: #fff;
+}
+
+body:hover {
+  background: url(grid.png) center -6px repeat-y #fff;
+}
+
+/*------------------------------------*
+  TYPE
+*------------------------------------*/
+/*--- HEADINGS ---*/
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.5em; /* 24px --> 24 ÷ 16 = 1.5 */
+  line-height: 1em; /* 24px --> 24 ÷ 24 = 1 */
+}
+
+h2 {
+  font-size: 1.375em; /* 22px --> 22 ÷ 16 = 1.375 */
+  line-height: 1.0909em; /* 24px --> 24 ÷ 22 = 1.090909(09) */
+}
+
+h3 {
+  font-size: 1.25em; /* 20px --> 20 ÷ 16 = 1.25 */
+  line-height: 1.2em; /* 24px --> 24 ÷ 20 = 1.2 */
+}
+
+h4 {
+  font-size: 1.125em; /* 18px --> 18 ÷ 16 = 1.125 */
+  line-height: 1.333em; /* 24px --> 24 ÷ 18 = 1.3333333(3) */
+}
+
+h5, h6 {
+  font-size: 1em; /* 16px --> 16 ÷ 16 = 1 */
+  line-height: 1.5em; /* 24px --> 24 ÷ 16 = 1.5 */
+}
+
+*--- PARAGRAPHS ---*/
+p {
+  margin-bottom: 24px;
+}
+
+p+p {
+  text-indent: 1em;
+}
+
+body > p:first-of-type {
+  font-size: 1.125em;
+    /* 18px → 18 ÷ 16 = 1.125 */
+
+  line-height: 1.333em;
+    /* 24px → 24 ÷ 18 = 1.3333(3) */
+}
+
+/*--- LISTS ---*/
+ul, ol {
+  margin-bottom: 24px;
+    /* Remember, if your magic number is
+    different to this, use your own. */
+}
+
+ul {
+  list-style: square outside;
+}
+
+ul ul,
+ol ol {
+  margin: 0 0 0 60px;
+}
+
+/*--- QUOTES ---*/
+blockquote {
+  margin: 0 60px 0 45px;
+  border-left: 5px solid #ccc;
+  padding-left: 10px;
+  text-indent: -0.4em;
+}
+
+blockquote b {
+  display: block;
+  text-indent: 0;
+}
+
+/*--- LINKS ---*/
+a {
+  color: #09f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active,
+a:focus {
+  position: relative;
+  top: 1px;
+}
+
+.read-more:after {
+  content: " >>"; /* Insert a space then right angled-quote */
+}
+
+/*------------------------------------*
+  IMAGES
+*------------------------------------*/
+
+#me {
+  float: right;
+  margin: 0 0 0 20px;
+  display: block;
+  width: 148px;
+  height: auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}

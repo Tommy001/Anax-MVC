@@ -1,0 +1,92 @@
+[
+    {
+        "name": "phpmvc/comment",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mosbth/phpmvc-comment.git",
+            "reference": "ea5c43e8bb3f723d6fb69c892500d26c7390eb37"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mosbth/phpmvc-comment/zipball/ea5c43e8bb3f723d6fb69c892500d26c7390eb37",
+            "reference": "ea5c43e8bb3f723d6fb69c892500d26c7390eb37",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2014-04-02 12:59:02",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Phpmvc\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mikael Roos",
+                "email": "me@mikaelroos.se",
+                "homepage": "http://mikaelroos.se",
+                "role": "Developer"
+            }
+        ],
+        "description": "Various base classes for comments management",
+        "homepage": "http://dbwebb.se",
+        "keywords": [
+            "comments",
+            "education"
+        ]
+    },
+    {
+        "name": "jimmiw/php-time-ago",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jimmiw/php-time-ago.git",
+            "reference": "f762b9fa21c949d757fc41ddfe0b495785d57bc9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jimmiw/php-time-ago/zipball/f762b9fa21c949d757fc41ddfe0b495785d57bc9",
+            "reference": "f762b9fa21c949d757fc41ddfe0b495785d57bc9",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=4"
+        },
+        "time": "2014-10-09 07:27:04",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "timeago.inc.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jimmi Westerberg",
+                "homepage": "http://www.westsworld.dk",
+                "role": "Developer"
+            }
+        ],
+        "description": "Simple module, that displays the date in a \"time ago\" format",
+        "homepage": "https://github.com/jimmiw/php-time-ago",
+        "keywords": [
+            "distance of time",
+            "time ago",
+            "time ago in words"
+        ]
+    }
+]
