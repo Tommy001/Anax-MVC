@@ -24,7 +24,8 @@
     },
         "require": {
         "phpmvc/comment": "dev-master",
-        "jimmiw/php-time-ago": "dev-master"
+        "jimmiw/php-time-ago": "dev-master",
+        "mos/cform": "2.*@dev"
     }
 
 }
