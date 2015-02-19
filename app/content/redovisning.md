@@ -1,3 +1,4 @@
+<a name="kmom01"></a> 
 Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
 
@@ -14,7 +15,7 @@ Det krävde att jag provade ett otal olika namnrymder på tärningsspelets klass
 
 **Extra.** Jag lade till tärningsspelet från kmom02 i oophp.
 
- 
+<a name="kmom02"></a> 
 Kmom02: Kontroller och Modeller
 ------------------------------------
  
@@ -35,7 +36,8 @@ Det största problemet jag hade (förutom startsträckan) var att jag ville visa
 I funktionen editAction (där man hamnar efter ett tryck på ändra-knappen) anropar jag en funktion som hämtar ut den aktuella sidans innehåll och då kan jag använda *$this->views->add("me/$key",...* osv. för att först visa den aktuella sid-vyn (med eller utan byline) och därefter vyn med ändringsformuläret.
 
 **Extra.** Jag gjorde båda extrauppgifterna: profilbild från Gravatar och dölja/visa en del av formuläret. Eftersom det skickas med en redirect-URL som "hidden value" i alla formulär (utom ändringsformuläret) kunde jag hänga på en "hash" (#comment) som används för att skrolla ned sidan automatiskt till ett ankare i formuläret. I ändringsformuläret används ingen redirect, så där kopierade jag in ett js-script som jag hittade på internet längst ned sidan. Är det sånt som kallas fulhack? :-)
- 
+
+<a name="kmom03"></a> 
 Kmom03: Bygg ett eget tema
 ------------------------------------
  
@@ -62,11 +64,31 @@ Jag har inte använt **CSS-ramverk** tidigare, bara lånat CSS-snuttar här och 
 **Mitt tema**. Eftersom jag gjorde övningen från början till slut, utgick jag från den. Som sagt ovan ändrade jag till 24 som "magic number" och lade till olika bakgrunder på olika testsidor, för att underlätta granskningen. Bland annat därför att jag ville ha tydligare horisontella rader på sidorna med text, men på Font Awesome-sidan behövdes ingen bakgrund, så den fick bli vit. På testsidan Tema framgår det också att enbart regioner med innehåll visas. 
 
 
-
+<a name="kmom04"></a> 
 Kmom04: Databasdrivna modeller
 ------------------------------------
  
-Fin redovisningstext om kursmoment 04.
+**Klar med kmom04.** Det här momentet tog lång tid och jag känner nog att det var det svåraste hittills i hela kurspaketet. Man skulle dels skapa en användarfunktion med både CForm och CDatabase och dels bygga om kommentarsfunktionen från kmom02 så att den sparar data i databasen i stället för sessionen.
+
+Precis som i kmom02 lät jag kommentarsfunktionen ha separata flöden på de olika sidorna. Kommentarer kan läggas in på Start, Redovisning och Tärningsspel.
+
+Det var en stor textmassa att ta sig igenom före övningarna. När man som jag inte har tillräckliga ramverkskunskaper för att enkelt hänga med i texterna, blir det väldigt svårt att förstå mer än de stora dragen. Men jag läste allt och tog till mig det jag kunde.
+
+Jag tyckte att jag fick till en ganska tydlig **användarsida**, där det framgår klart vilka användare som har "slängts" i papperskorgen, vilka som är aktiva och vilka som inte är det. I menyn kan man välja att se enbart aktiva, inaktiva etc. samt återställa databasen. På sidorna har jag använt mig av baslinjerastret från förra momentet, så raderna i användartabellen och papperskorgen linjerar faktiskt. Från förra momentet har jag också lånat några Font Awesome-symboler.
+
+Nåväl... jag hade lite problem med att använda custom-valideringen i **formulärhanteringen**. Försökte få till en kontroll av att användarnamnet inte redan fanns i databasen, eftersom det fältet skulle vara unikt. Och det lyckades till slut, tack vare hjälp från chatt och forum och massa letande i CFormElement. Se den här [länken](http://dbwebb.se/forum/viewtopic.php?f=40&t=3769) om det problemet.
+
+Det är praktiskt med alla "automatiska" kontroller och valideringar som kan göras i formulären bara genom att ange t.ex. "required" eller "not_empty". Jag ägnade rätt mycket tid till att försöka förstå koden i CForm eller snarare CFormElement. Jag lyckades stänga av fieldset (som jag tycker är fult) och förstod att det går att styla elementen med CSS-klasser (ja, eller LESS-klasser), vilket jag gjorde i kommentarsformuläret för att få fälten till den bredd jag ville ha. Försökte få fälten namn, mail och webbsida på samma rad efter varandra, men lyckades inte med det. Är detta kanske en svaghet, att man blir rätt så begränsad när det gäller stylingen av formulärelementen? Eller så är det jag som inte kunde bättre.
+
+**Vägval**. För att implementera kommentarer med databasstöd utgick jag från den gamla *CommentController* i Vendor-mappen och lade den nya klassen i app/src/Comment och gjorde sedan en extra klass *Comments* som "extendade" CDatabaseModel. Sedan använde jag *Comments* för att skapa/spara/radera kommentarer inifrån *CommentController*. Den här uppgiften tog minst lika mycket tid som uppgiften att hantera användare, så jag försökte mig inte på några extravaganser.
+
+Jag provade att bygga SQL-queries automatiskt med hjälp av query-byggaren, inget avancerat, men jag förstår att det kan vara en bra hjälp, se t.ex. rad 31-37 i *app/src/Comment/Comments.php*. Just där pratar jag direkt med CDataBase, borde kanske ha gjort en hjälpmetod i CDataBaseModel i stället. Jag provade lite olika metoder för att se vad som känns bäst. 
+
+**Extra.** På grund av tidsbrist försökte jag mig inte på extrauppgiften.
+Däremot har jag snyggat upp me-sidan, valt en annan annan typografi, lagt in undermenyer och "flyttat hem" Tema-momentet från förra uppgiften så att man slipper växla mellan två frontkontroller. Ska lägga till en sidmeny på redovisningssidan också så att man slipper skrolla upp och ned, men det blir i nästa kursmoment.
+
+Måste också tacka alla på chatten som hjälper till både på dagtid, helger och kvällar... thebiffman, Bobbzorsen, foiki, Sylvanas, Olund osv. Utan dem hade det här tagit betydligt längre tid.
+
 
 Kmom05: Bygg ut ramverket
 ------------------------------------

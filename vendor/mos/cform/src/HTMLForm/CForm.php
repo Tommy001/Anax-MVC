@@ -156,7 +156,7 @@ class CForm implements \ArrayAccess
             'start'          => false,  // Only return the start of the form element
             'columns'        => 1,      // Layout all elements in one column
             'use_buttonbar'  => true,   // Layout consequtive buttons as one element wrapped in <p>
-            'use_fieldset'   => true,   // Wrap form fields within <fieldset>
+            'use_fieldset'   => false,   // Wrap form fields within <fieldset>
             'legend'         => isset($this->form['legend']) ? $this->form['legend'] : null,   // Use legend for fieldset
         ];
         $options = array_merge($defaults, $options);

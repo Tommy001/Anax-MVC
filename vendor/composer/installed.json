@@ -134,5 +134,53 @@
             "education",
             "html"
         ]
+    },
+    {
+        "name": "mos/cdatabase",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mosbth/cdatabase.git",
+            "reference": "91406bffa178184b8b490432c3d8b582d1834115"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mosbth/cdatabase/zipball/91406bffa178184b8b490432c3d8b582d1834115",
+            "reference": "91406bffa178184b8b490432c3d8b582d1834115",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2015-01-21 10:13:22",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Mos\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mikael Roos",
+                "email": "me@mikaelroos.se",
+                "homepage": "http://mikaelroos.se",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP classes for database handling upon PDO",
+        "homepage": "http://dbwebb.se",
+        "keywords": [
+            "education",
+            "framework",
+            "micro",
+            "module",
+            "mvc"
+        ]
     }
 ]

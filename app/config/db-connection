@@ -1,0 +1,11 @@
+<?php
+
+return [
+    'dsn'     => "mysql:host=localhost;dbname=toja14;",
+    'username'        => "",
+    'password'        => "root",
+    'driver_options'  => null,
+    'driver_options'  => [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"],
+    'verbose' => true,
+    //'debug_connect' => true,
+];

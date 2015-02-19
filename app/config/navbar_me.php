@@ -17,50 +17,45 @@ return [
             'url'   => $this->di->get('url')->create(''),
             'title' => 'Min Me-sida'
         ],
- 
-        /* This is a menu item
-        'test'  => [
-            'text'  => 'Submenu',
-            'url'   => $this->di->get('url')->create('submenu'),
-            'title' => 'Submenu with url as internal route within this frontcontroller',
-
+        'redovisning' => [
+            'text'  =>'Redovisning',
+            'url'   => $this->di->get('url')->create('redovisning'),
+            'title' => 'Min redovisningssida',
+            'mark-if-parent-of' => 'redovisning',
+            
             // Here we add the submenu, with some menu items, as part of a existing menu item
             'submenu' => [
 
                 'items' => [
 
                     // This is a menu item of the submenu
-                    'item 0'  => [
-                        'text'  => 'Item 0',
-                        'url'   => $this->di->get('url')->create('submenu/item-0'),
-                        'title' => 'Url as internal route within this frontcontroller'
+                    'kmom01'  => [
+                        'text'  => 'Kmom01',
+                        'url'   => $this->di->get('url')->asset('redovisning/#kmom01'),
+                        'title' => 'Kursmoment 1',
+                        'class' => 'small',
                     ],
-
                     // This is a menu item of the submenu
-                    'item 2'  => [
-                        'text'  => '/humans.txt',
-                        'url'   => $this->di->get('url')->asset('/humans.txt'),
-                        'title' => 'Url to sitespecific asset',
-                        'class' => 'italic'
-                    ],
-
-                    // This is a menu item of the submenu
-                    'item 3'  => [
-                        'text'  => 'humans.txt',
-                        'url'   => $this->di->get('url')->asset('humans.txt'),
-                        'title' => 'Url to asset relative to frontcontroller',
-                    ],
+                    'kmom02'  => [
+                        'text'  => 'Kmom02',
+                        'url'   => $this->di->get('url')->asset('redovisning/#kmom02'),
+                        'title' => 'Kursmoment 2',
+                        'class' => 'small',                        
+                    ],   
+                    'kmom03'  => [
+                        'text'  => 'Kmom03',
+                        'url'   => $this->di->get('url')->asset('redovisning/#kmom03'),
+                        'title' => 'Kursmoment 3',
+                        'class' => 'small',                        
+                    ],                    
+                    'kmom04'  => [
+                        'text'  => 'Kmom04',
+                        'url'   => $this->di->get('url')->asset('redovisning/#kmom04'),
+                        'title' => 'Kursmoment 4',
+                        'class' => 'small',                        
+                    ],  
                 ],
-            ],
-        ],
- 
-        // This is a menu item */
-        
-        'redovisning' => [
-            'text'  =>'Redovisning',
-            'url'   => $this->di->get('url')->create('redovisning'),
-            'title' => 'Min redovisningssida',
-            'mark-if-parent-of' => 'redovisning',
+            ],            
         ],
         
         'dicegame' => [
@@ -68,14 +63,100 @@ return [
             'url'   => $this->di->get('url')->create('dicegame'),
             'title' => 'Tärningsspelet 100',
             'mark-if-parent-of' => 'dicegame',
-        ],        
+        ],    
+    
 
         'theme' => [
             'text'  =>'Mitt tema',
-            'url'   => $this->di->get('url')->create('theme.php'),
+            'url'   => $this->di->get('url')->create('theme'),
             'title' => 'Min tema-sida',
-            'mark-if-parent-of' => 'theme',
-        ],  
+            'mark-if-parent-of' => 'theme',       
+ 
+            // Here we add the submenu, with some menu items, as part of a existing menu item
+            'submenu' => [
+
+                'items' => [
+
+                    // This is a menu item of the submenu
+                    'regioner'  => [
+                        'text'  => 'Regioner',
+                        'url'   => $this->di->get('url')->asset('regioner'),
+                        'title' => 'Regioner',
+                        'class' => 'small',                        
+                    ],
+                    // This is a menu item of the submenu
+                    'grid'  => [
+                        'text'  => 'Rutnät',
+                        'url'   => $this->di->get('url')->asset('grid'),
+                        'title' => 'Visa alla användare',
+                        'class' => 'small',                        
+                    ],                    
+
+                    // This is a menu item of the submenu
+                    'typgraphy'  => [
+                        'text'  => 'Typografi',
+                        'url'   => $this->di->get('url')->asset('typography'),
+                        'title' => 'Typografi',
+                        'class' => 'small',                        
+                    ],
+                    // This is a menu item of the submenu
+                    'fontawesome'  => [
+                        'text'  => 'Font Awesome',
+                        'url'   => $this->di->get('url')->asset('fontawesome'),
+                        'title' => 'Font Awesome',
+                        'class' => 'small',                        
+                    ],                    
+                ],
+            ],
+        ],
+
+        'list'  => [
+            'text'  => 'Användare',
+            'url'   => $this->di->get('url')->create('list'),
+            'title' => 'Test av basklass för databasdrivna modeller',
+
+            // Here we add the submenu, with some menu items, as part of a existing menu item
+            'submenu' => [
+
+                'items' => [
+
+                    // This is a menu item of the submenu
+                    'list'  => [
+                        'text'  => 'Visa alla',
+                        'url'   => $this->di->get('url')->create('list'),
+                        'title' => 'Visa alla användare',
+                        'class' => 'small',                        
+                    ],                    
+
+                    // This is a menu item of the submenu
+                    'active'  => [
+                        'text'  => 'Visa aktiva',
+                        'url'   => $this->di->get('url')->create('users/active'),
+                        'title' => 'Visa aktiva användare',
+                        'class' => 'small',                        
+                    ],
+                    // This is a menu item of the submenu
+                    'inactive'  => [
+                        'text'  => 'Visa inaktiva',
+                        'url'   => $this->di->get('url')->create('users/inactive'),
+                        'title' => 'Visa inaktiva användare',
+                        'class' => 'small',                        
+                    ],                    
+
+                    // This is a menu item of the submenu
+                    'setup'  => [
+                        'text'  => 'Setup',
+                        'url'   => $this->di->get('url')->create('setup'),
+                        'title' => 'Återställ databasen',
+                        'class' => 'small',                        
+                    ],
+                ],
+            ],
+         ],
+
+        // This is a menu item */
+        
+ 
         
         'source' => [
             'text'  =>'Källkod',

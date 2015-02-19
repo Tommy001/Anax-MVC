@@ -15,7 +15,7 @@ return [
      */
     'settings' => [
         'path' => ANAX_INSTALL_PATH . 'theme/',
-        'name' => 'anax-base',
+        'name' => 'anax-grid',
     ],
 
     
@@ -60,7 +60,8 @@ return [
         'title_append' => ' | Anax a web template',
 
         // Stylesheets
-        'stylesheets' => ['css/style.css', 'css/navbar_me.css', 'css/figure.css'],
+      //  'stylesheets' => ['css/style.css', 'css/navbar_me.css', 'css/figure.css'],
+        'stylesheets' => ['css/anax-grid/style.php'],        
 
         // Inline style
         'style' => null,

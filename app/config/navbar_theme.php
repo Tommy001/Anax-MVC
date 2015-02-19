@@ -14,31 +14,31 @@ return [
         // This is a menu item
         'home'  => [
             'text'  => 'Tema',
-            'url'   => $this->di->get('url')->create('theme.php'),
+            'url'   => $this->di->get('url')->create('theme'),
             'title' => 'Tema'
         ],
         // This is a menu item
         'regioner'  => [
             'text'  => 'Regioner',
-            'url'   => $this->di->get('url')->create('theme.php/regioner'),
+            'url'   => $this->di->get('url')->create('regioner'),
             'title' => 'Regioner'
         ],   
         // This is a menu item
         'grid'  => [
             'text'  => 'Rutnät',
-            'url'   => $this->di->get('url')->create('theme.php/grid'),
+            'url'   => $this->di->get('url')->create('grid'),
             'title' => 'Rutnät'
         ],      
         // This is a menu item
         'typography'  => [
             'text'  => 'Typografi',
-            'url'   => $this->di->get('url')->create('theme.php/typography'),
+            'url'   => $this->di->get('url')->create('typography'),
             'title' => 'Typografi'
         ],         
         // This is a menu item
         'fontawesome'  => [
             'text'  => 'Font Awesome',
-            'url'   => $this->di->get('url')->create('theme.php/fontawesome'),
+            'url'   => $this->di->get('url')->create('fontawesome'),
             'title' => 'Font Awesome'
         ],           
         // This is a menu item

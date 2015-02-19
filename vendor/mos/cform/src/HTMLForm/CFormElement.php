@@ -328,12 +328,12 @@ class CFormElement implements \ArrayAccess
         $tests = [
           'fail' => array('message' => 'Will always fail.', 'test' => 'return false;'),
           'pass' => array('message' => 'Will always pass.', 'test' => 'return true;'),
-          'not_empty' => array('message' => 'Can not be empty.', 'test' => 'return $value != "";'),
-          'not_equal' => array('message' => 'Value not valid.', 'test' => 'return $value != $arg;'),
-          'numeric' => array('message' => 'Must be numeric.', 'test' => 'return is_numeric($value);'),
-          'email_adress' => array('message' => 'Must be an email adress.', 'test' => function($value) { return preg_match('/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i', $value) === 1; } ),
-          'match' => array('message' => 'The field does not match.', 'test' => 'return $value == $form[$arg]["value"] ;'),
-          'must_accept' => array('message' => 'You must accept this.', 'test' => 'return $checked;'),
+          'not_empty' => array('message' => 'Fältet får inte vara tomt.', 'test' => 'return $value != "";'),
+          'not_equal' => array('message' => 'Värdet är inte giltigt.', 'test' => 'return $value != $arg;'),
+          'numeric' => array('message' => 'Fältet måste bestå av siffror.', 'test' => 'return is_numeric($value);'),
+          'email_adress' => array('message' => 'Det här är inte en giltig e-postadress.', 'test' => function($value) { return preg_match('/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i', $value) === 1; } ),
+          'match' => array('message' => 'Fältet matchar inte.', 'test' => 'return $value == $form[$arg]["value"] ;'),
+          'must_accept' => array('message' => 'Du måste godkänna.', 'test' => 'return $checked;'),
           'custom_test' => true,
         ];
 

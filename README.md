@@ -3,7 +3,6 @@ Anax-MVC
 
 [![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.png)](https://packagist.org/packages/anax/mvc)
 [![Build Status](https://travis-ci.org/mosbth/Anax-MVC.png?branch=master)](https://travis-ci.org/mosbth/Anax-MVC)
-[![Coverage Status](https://coveralls.io/repos/mosbth/Anax-MVC/badge.png)](https://coveralls.io/r/mosbth/Anax-MVC)
 [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/Anax-MVC/badges/coverage.png?s=f999ab1961684a91050b095682f7ab7a13ccb534)](https://scrutinizer-ci.com/g/mosbth/Anax-MVC/)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mosbth/Anax-MVC/badges/quality-score.png?s=1c2fc1af0df7fb7ee1e4f379a81253583a750297)](https://scrutinizer-ci.com/g/mosbth/Anax-MVC/)
 
@@ -56,6 +55,8 @@ History
 
 v2.0.x (latest)
 
+* Updated composer.json and removed dependency to coverall.io.
+* updated .travis.yml to remove dependency to coverall.io and do not install composer.phar.
 * Adding example for shortcodes [BASEURL], [RELURL] and [ASSET].
 * Adding example code on using forward and view creation, fix #13.
 * `CDispatcherBasic->foward()` now returns a value, fix #12.

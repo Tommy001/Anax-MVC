@@ -9,32 +9,43 @@ namespace Phpmvc\Comment;
 class CommentController implements \Anax\DI\IInjectionAware
 {
     use \Anax\DI\TInjectable;
-
-
+    
+    protected $db;
+    protected $comments;
+    
+    /**
+ * Initialize the controller.
+ *
+ * @return void
+ */
+    public function initialize() {
+        $this->comments = new \Phpmvc\Comment\Comments();
+        $this->comments->setDI($this->di);
+    }
+        
 
     /**
      * View all comments.
      *
      * @return void
      */
-    public function viewAction($key=null) {
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
+    public function viewAction($page) {
+        $this->initialize();  
 
-        $all = $comments->findAll($key);
-        
+        $all = $this->comments->findAllComments($page);
+
     $this->views->add('comment/form', [
         'mail'      => null,
         'web'       => null,
         'name'      => null,
         'content'   => null,
         'output'    => null,
-        'key'    => $key, 
+        'page'    => $page, 
     ]);        
 
         $this->views->add('comment/comments', [
             'comments' => $all,
-            'key' => $key,
+            'page' => $page,
         ]);
     }
 
@@ -45,8 +56,8 @@ class CommentController implements \Anax\DI\IInjectionAware
      *
      * @return void
      */
-    public function addAction()
-    {
+    public function addAction() {
+        $this->initialize();  
         $isPosted = $this->request->getPost('doCreate');
         
         if (!$isPosted) {
@@ -58,14 +69,15 @@ class CommentController implements \Anax\DI\IInjectionAware
             'name'      => $this->request->getPost('name'),
             'web'       => $this->request->getPost('web'),
             'mail'      => $this->request->getPost('mail'),
-            'timestamp' => time(),
+            'created' =>   date('Y-m-d H:i:s'),
+            'page'      => null,
             'ip'        => $this->request->getServer('REMOTE_ADDR'),
         ];
 
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
-        $key = $this->request->getPost('key'); // hämta key, skickas som hidden value från formuläret
-        $comments->add($comment, $key);
+        $page = $this->request->getPost('page'); // hämta page, skickas som hidden value från formuläret
+
+
+        $this->comments->add($comment, $page);
 
         $this->response->redirect($this->request->getPost('redirect'));
     }
@@ -77,36 +89,37 @@ class CommentController implements \Anax\DI\IInjectionAware
      *
      * @return void
      */
-    public function removeAllAction()
-    {
+    public function removeAllAction() {
+        $this->initialize();  
         $isPosted = $this->request->getPost('doRemoveAll');
         
         if (!$isPosted) {
             $this->response->redirect($this->request->getPost('redirect'));
         }
 
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
-        $key = $this->request->getPost('key');
-        $comments->deleteAll($key);
+        $page = $this->request->getPost('page');
+
+        $this->comments->deleteAll($page);
 
         $this->response->redirect($this->request->getPost('redirect'));
     }
     
+    /**
+     * Remove 1 comment.
+     *
+     * @return void
+     */    
     public function deleteAction($id){
-
+        $this->initialize(); 
         $isPosted = $this->request->getPost('delete');
 
         if (!$isPosted) {
             $this->response->redirect($this->request->getPost('redirect'));
         }
 
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
+        $page = $this->request->getPost('page');
 
-        $key = $this->request->getPost('key');
-
-        $comments->deletePost($id, $key);
+        $this->comments->deletePost($id, $page);
 
         $this->response->redirect($this->request->getPost('redirect'));
     }
@@ -129,43 +142,43 @@ class CommentController implements \Anax\DI\IInjectionAware
     
     // kan anropas med både knappar och länkar, post och get
       public function editAction($id=null) {
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
+        $this->initialize(); 
         
         if(!isset($id)) {
             $id = $this->request->getGet('id');
         }
         
-        $key = $this->request->getPost('key');
+        $page = $this->request->getPost('page');
         
-        if(!isset($key)) {
-            $key = $this->request->getGet('key');
-        }        
+        if(!isset($page)) {
+            $page = $this->request->getGet('page');
+        }   
 
-        $comment = $comments->findComment($id, $key);
+        $comment = $this->comments->findComment($id, $page);
 
         $this->theme->setTitle('Ändra kommentar');
+
         
-        
-// hämtar den aktuella sidans innehåll från sessionsvariabel
-        $page = $this->getCurrentAction();
+// hämtar den aktuella sidans huvudinnehåll från sessionsvariabel
+        $maincontent = $this->getCurrentAction();
 
 // visar den aktuella sidan överst, följt av ev. byline 
 // hmm får lägga till tärningsspelets stilmall också
 // kanske bättre att lägga alla stilmallar i config?
         $this->theme->addStylesheet('css/dicegame.css');
-        $this->views->add("me/$key", [        
-        'content' => $page[0],
-        'byline' => $page[1],        
+        $this->theme->setVariable('wrapperclass', 'typography');        
+        $this->views->add("me/$page", [        
+        'content' => $maincontent[0],
+        'byline' => $maincontent[1],        
     ]);        
 
         $this->views->add("comment/edit", [
-            'mail' => $comment['mail'],
-            'web'       => $comment['web'], 
-            'name'      => $comment['name'], 
-            'content'   => $comment['content'], 
+            'mail' => $comment[0]->mail,
+            'web'       => $comment[0]->web, 
+            'name'      => $comment[0]->name, 
+            'content'   => $comment[0]->content, 
             'id'    => $id, 
-            'key' => $key,
+            'page' => $page,
         ]);
 
 
@@ -176,31 +189,27 @@ class CommentController implements \Anax\DI\IInjectionAware
     }
 
     public function SaveAction($id){
-
+        $this->initialize(); 
         $isPosted = $this->request->getPost('save');
         
         if (!$isPosted) {
             $this->response->redirect($this->request->getPost('redirect'));
         }
 
-
-
         $comment = [
             'content'   => $this->request->getPost('content'),
             'name'      => $this->request->getPost('name'),
             'web'       => $this->request->getPost('web'),
             'mail'      => $this->request->getPost('mail'),
-            'timestamp' => time(),
+            'updated'   => date('Y-m-d H:i:s'),
             'ip'        => $this->request->getServer('REMOTE_ADDR'),
             'id'        => $id,
+            'page'        => null,
         ];
 
-        $comments = new \Phpmvc\Comment\CommentsInSession();
-        $comments->setDI($this->di);
+        $page = $this->request->getPost('page'); ///Gets the page
 
-        $key = $this->request->getPost('key'); ///Gets the key
-
-        $comments->save($id, $comment, $key);
+        $this->comments->saveComment($id, $comment, $page);
 
         $this->response->redirect($this->request->getPost('redirect'));
 

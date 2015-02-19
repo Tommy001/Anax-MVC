@@ -52,6 +52,10 @@
         <div id='triptych-3'><?php $this->views->render('triptych-3')?></div>
     </div>
     <?php endif; ?>
+    
+    <?php if ($this->views->hasContent('bottom')) : ?>
+    <div id='bottom' class='background'><?php $this->views->render('bottom')?></div>
+    <?php endif; ?>    
 
     <?php if ($this->views->hasContent('footer-col-1', 'footer-col-2', 'footer-col-3', 'footer-col-4')) : ?>
     <div id='wrap-footer-col'>

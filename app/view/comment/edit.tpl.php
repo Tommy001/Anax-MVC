@@ -2,7 +2,7 @@
 </script>
 <div class='comment-form'>
     <form method=post>
-        <input type=hidden name="key" value="<?= $key ?>">
+        <input type=hidden name="page" value="<?= $page ?>">
         <input type=hidden name="redirect" value="<?= $_SERVER['HTTP_REFERER']?>#comment">
         <h2><a name='comment'>Ändra inlägg</a></h2>
         <div id='bottom' class='kontakt'>
