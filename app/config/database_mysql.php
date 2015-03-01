@@ -9,7 +9,7 @@ return [
     'table_prefix'    => "test_",
 
     // Display details on what happens
-    // 'verbose' => true,
+     //'verbose' => true,
 
     // Throw a more verbose exception when failing to connect
     //'debug_connect' => 'true',

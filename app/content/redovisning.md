@@ -89,11 +89,27 @@ Däremot har jag snyggat upp me-sidan, valt en annan annan typografi, lagt in un
 
 Måste också tacka alla på chatten som hjälper till både på dagtid, helger och kvällar... thebiffman, Bobbzorsen, foiki, Sylvanas, Olund osv. Utan dem hade det här tagit betydligt längre tid.
 
-
+<a name="kmom05"></a>
 Kmom05: Bygg ut ramverket
 ------------------------------------
  
-Fin redovisningstext om kursmoment 05.
+**Klar med kmom05.** Det var skönt att läsa inledningen till det här kursmomentet, eftersom kmom04 var väldigt krävande. Det stod "Jag tänkte faktiskt att vi tar det lite lugnare nu"... Vad skönt att höra :-).
+
+För min egen del blev det inte fullt så enkelt dock. Jag bestämde mig för anpassa en gammal kodsnutt för uppladdning av bilder som jag hade liggande. Uppladdning är något som jag har saknat i Anax-MVC, så det kunde ju passa bra. Jag har ingen stor tidigare programmeringserfarenhet och den här koden hör till det första jag jag gjorde i PHP för ett par år sedan. Det fanns med andra ord utrymme för förbättring, så jag tog tillfället i akt att skriva om koden. Eftersom jag har tänkt stoppa in lite fler funktioner längre fram fick den helt ospecifikt heta **mymodule**. Enkelt och bra.
+
+**Problem.** Jag krånglade till det genom att göra färdigt modulen i min befintliga me-sida, där jag bland annat tog hjälp av CDatabase och använde befintlig formatering från kmom03 etc. Tänkte att det skulle vara enklare för den som rättar att funktionen låg integrerad på me-sidan.
+
+Sedan körde jag fast ordentligt när jag skulle testa modulen i en ren Anax-MVC, som jag klonade ner. Ingenting fungerade. Det blev till att sätta sig att läsa instruktioner i kmom01 igen och plåga folk på chatten med frågor. Fick till exempel för mig att det hade varit bra om modulen kunde köras direkt i vendor-mappen, utan att man behöver flytta filer hit och dit. Det lyckades jag inte reda ut. Jag övergav det spåret och övergav också tanken på att låta modulen vara beroende av CDatabase. Det handlade ju bara om en liten testtabell i MySQL.
+
+**Lärdomar.** Jag lärde mig en del nytt, som t.ex. att det inte går att använda globala funktioner hur som helst inne i en namespace, som t.ex. "new PDO()...." som i stället måste skrivas "new \PDO()...".
+
+Jag har också lärt mig att göra en try/catch-metod och att använda Exception-hantering, vilket jag annars har lyckats undvika.
+
+**Avslutningsvis.** Tlll slut fick jag ändå allt att fungera och såvitt jag förstår var det här momentet mer en övning i att publicera egen kod på Github och Packagist, än att leverera en fantastiskt snillrik kod (även om jag inte alls är missnöjd med mitt bidrag, tvärtom). Jag har nu testat att det går att använda Composer för att ladda hem modulen till en ren Anax-MVC och testat att mina instruktioner går att följa.
+
+Jag har sett till att Packagist uppdateras automatiskt när jag pushar till Github och har skrivit en Readme-fil och angivit MIT-licens etc. Se mitt Github-repo [här](https://github.com/Tommy001/mymodule) och mitt Packagist-konto här [här](https://packagist.org/packages/tommy001/mymodule).
+
+**Extra.** På grund av tidsbrist blev det inget extra den här gången heller. Jag prioriterar att hålla tempot i kursen.
 
 Kmom06: Verktyg och CI
 ------------------------------------

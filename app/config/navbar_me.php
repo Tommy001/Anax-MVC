@@ -54,15 +54,21 @@ return [
                         'title' => 'Kursmoment 4',
                         'class' => 'small',                        
                     ],  
+                    'kmom05'  => [
+                        'text'  => 'Kmom05',
+                        'url'   => $this->di->get('url')->asset('redovisning/#kmom05'),
+                        'title' => 'Kursmoment 5',
+                        'class' => 'small',                        
+                    ],                      
                 ],
             ],            
         ],
         
-        'dicegame' => [
-            'text'  =>'Tärningsspel',
-            'url'   => $this->di->get('url')->create('dicegame'),
-            'title' => 'Tärningsspelet 100',
-            'mark-if-parent-of' => 'dicegame',
+        'mymodule' => [
+            'text'  =>'mymodule',
+            'url'   => $this->di->get('url')->create('mymodule'),
+            'title' => 'Min modul',
+            'mark-if-parent-of' => 'mymodule',
         ],    
     
 

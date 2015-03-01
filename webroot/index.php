@@ -16,6 +16,12 @@ $di->set('CommentController', function() use ($di) {
     return $controller;
 });
 
+$di->set('UploadController', function() use ($di) {
+    $upload = new Anax\Mymodule\UploadController();
+    $upload->setDI($di);
+    return $upload;
+});
+
 $di->setShared('db', function() {
     $db = new \Mos\Database\CDatabaseBasic();
     $db->setOptions(require ANAX_APP_PATH . 'config/database_mysql.php');
@@ -96,61 +102,14 @@ $app->router->add('redovisning', function() use ($app) {
  
 });
 
-$app->router->add('dicegame', function() use ($app) {
+$app->router->add('mymodule', function() use ($app) {
     $app->theme->setVariable('wrapperclass', 'typography'); 
-    $app->theme->setTitle("Tärningsspel");
-    $app->theme->addStylesheet('css/dicegame.css');
-    $app->theme->addJavaScript('js/toggle.js');
+    $app->theme->setTitle("Mymodule");
     
-    $content = null;
-    $last = 0;
-    $round = 0;
-    $roll = $app->request->getGet('roll', null);
-    $save = $app->request->getGet('save', null);
-    $init = $app->request->getGet('init', null);    
+
     
-    if(isset($init)) {
-        unset($_SESSION['play100']);
-    }
-
-    if(isset($_SESSION['play100'])) {
-        $play100 = $_SESSION['play100'];
-    } else {
-        $play100 = new \Mos\CDice\CDiceGameRound();
-        $_SESSION['play100'] = $play100;
-    }
-
-    $content = $play100->GetGameBoard(); // visa spelplanen
-
-    if (isset($roll) && !$play100->Reach100()) { // tillåt kast om poängen < 100
-        $content = $play100->IfRollDice();
-    }
-
-    if (isset($save)) { // efter klick på Spara: 
-        $content = $play100->SaveRound($round); // spara och få tillbaka spelplanen
-    }
-
-
-    $app->views->add('me/dicegame', [
-        'content'      => $content,
-    ]);
+        $app->views->add('mymodule/uploadform',[]);    
     
-        
-    $app->theme->addStylesheet('css/comment.css');
-
-    $app->dispatcher->forward([
-        'controller' => 'comment',
-        'action'     => 'view',
-        'params'     => ['dicegame',],        
-    ]);
-
-    $app->dispatcher->forward([
-        'controller' => 'comment',
-        'action'     => 'saveCurrent',
-        'params'     => [$content,$byline=null,],        
-    ]);       
-      
-
 });
 
 $app->router->add('theme', function() use ($app) {

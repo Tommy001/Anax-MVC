@@ -90,6 +90,7 @@ public function find($id)
  */
 public function save($values = [])
 {
+
     $this->setProperties($values);
     $values = $this->getProperties();
 
@@ -110,12 +111,12 @@ public function save($values = [])
 public function create($values) {
     $keys   = array_keys($values);
     $values = array_values($values);
- 
+
     $this->db->insert(
         $this->getSource(),
         $keys
     );
- 
+
     $res = $this->db->execute($values);
 
     $this->id = $this->db->lastInsertId();
