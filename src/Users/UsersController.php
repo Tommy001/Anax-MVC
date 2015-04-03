@@ -116,7 +116,6 @@ public function addAction() {
 
         $now = date('Y-m-d H:i:s');        
         $this->users->save([
-            'id' => $id,
             'acronym' => $this->form->value('acronym'),
             'email' => $this->form->value('email'),
             'name' => $this->form->value('name'),
@@ -235,9 +234,6 @@ public function updateAction($id = null) {
     }
     
     public function updateDuplicateAcronym($acronym, $id) {
-        dump($acronym);
-        dump($id);
-        exit;
         $user = $this->users->findAcronym($acronym);
         
         return empty($user);

@@ -26,8 +26,10 @@ ErrorDocument 404 "This is a Anax 404. Document is not here."
 
   #RewriteRule ^theme(/?.*)$   debug.php$1 [NC,L]
  #RewriteRule ^(theme)$ theme.php/$1 [NC,L]
-  #RewriteBase /~toja14/phpmvc/kmom05/Anax-MVC/webroot/
+  RewriteBase /~toja14/phpmvc/kmom06/me/Anax-MVC/webroot/
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   
   RewriteRule (.*) index.php/$1 [NC,L]
+  
+</IfModule> 
